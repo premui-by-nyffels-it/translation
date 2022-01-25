@@ -1,4 +1,12 @@
 # Overview
 All the changes for the Premui Translation module. 
 
-[0.1.0] - UNRELEASED
+[0.1.1] - 2022-01-25
+
+# Fixed
+- Fixed some incorrect file names.
+
+[0.1.0] - 2022-01-25
+
+# Added
+- Translation logic. 

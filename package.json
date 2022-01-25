@@ -1,6 +1,6 @@
 {
   "name": "@premui/translation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This project is part of the PremUI library and contains all the functions, classes and services needed to translation module of premui.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
