@@ -1,2 +1,2 @@
 export { TranslationItem } from './interfaces/translation-item.interface';
-export { Translation } from './classes/language.class';
+export { Translation } from './classes/translation.class';
