@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "es2021",
+		"module": "commonjs",
+		"declaration": true,
+		"outDir": "./dist",
+		"typeRoots": ["node_modules/@types"]
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}
