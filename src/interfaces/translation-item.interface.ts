@@ -1,4 +1,4 @@
-import { TranslationValue } from "./language-value.interface";
+import { TranslationValue } from "./translation-value.interface";
 
 export interface TranslationItem {
   key: string;
