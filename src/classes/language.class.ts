@@ -6,16 +6,16 @@ export class Language {
   private _data: LanguageItem[];
 
   private _selectedIso: string;
-  set language(iso: string) {
+  public set language(iso: string) {
     this._selectedIso = iso != null && iso.trim() != '' ? iso : this._defaultIso;
     this.languageChanged.next(this._selectedIso);
   }
-  get language(): string {
+  public get language(): string {
     return this._selectedIso;
   }
 
   private _defaultIso: string;
-	set defaultIso(iso: string) {
+	public set defaultIso(iso: string) {
 		this._defaultIso = iso;
 	}
 
