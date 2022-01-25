@@ -1,4 +1,4 @@
-# Premui Language
+# Premui Translation
 
 This project is part of the PremUI library and contains all the functions, classes and services needed to translation module of premui. 
 

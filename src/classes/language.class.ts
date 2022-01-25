@@ -1,9 +1,9 @@
 import { Subject } from 'rxjs';
-import { LanguageItem } from '../interfaces/language-item.interface';
+import { TranslationItem } from '../interfaces/translation-item.interface';
 import _ from 'lodash';
 
-export class Language {
-  private _data: LanguageItem[];
+export class Translation {
+  private _data: TranslationItem[];
 
   private _selectedIso: string;
   public set language(iso: string) {
@@ -21,13 +21,13 @@ export class Language {
 
   public languageChanged: Subject<string> = new Subject<string>();
 
-  constructor(data: LanguageItem[] = [], iso: string = null) {
+  constructor(data: TranslationItem[] = [], iso: string = null) {
     this._data = data;
     this._defaultIso = 'en';
     this._selectedIso = iso ? iso : this._defaultIso;
   }
 
-  public loadData(data: LanguageItem[], append = false): void {
+  public loadData(data: TranslationItem[], append = false): void {
     if (!!append) {
       this._data.concat(data);
     } else {
@@ -41,7 +41,7 @@ export class Language {
 
     if (this._selectedIso) {
       /* Get the translationstring */
-      let item: LanguageItem = this._data.find((x) => x.key == key);
+      let item: TranslationItem = this._data.find((x) => x.key == key);
       if (item == null) return key;
       let translationString = item.values.find((x) => x.iso == this._selectedIso)?.value;
 
@@ -64,7 +64,7 @@ export class Language {
     if (value === null) return [];
 
     if (this._selectedIso) {
-      let items: LanguageItem[] = this._data
+      let items: TranslationItem[] = this._data
         .filter((item) => {
           if (preKeyFilter == null) {
             return true;
