@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 import { TranslationItem } from '../interfaces/translation-item.interface';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 export class Translation {
   private _data: TranslationItem[];
