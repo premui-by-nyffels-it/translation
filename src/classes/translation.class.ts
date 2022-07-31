@@ -35,7 +35,7 @@ export class Translation {
     }
   }
 
-  public getValueByKey(key: string, params: string[] = []): string {
+  public getValueByKey(key: string, params: string[] = [], overrideIso: string = null): string {
     if (key === null || key === undefined) return '';
     if (params === undefined || params === null) params = [];
 
@@ -43,12 +43,12 @@ export class Translation {
       /* Get the translationstring */
       let item: TranslationItem = this._data.find((x) => x.key == key);
       if (item == null) return key;
-      let translationString = item.values.find((x) => x.iso == this._selectedIso)?.value;
+      let translationString = item.values.find((x) => x.iso == (overrideIso ? overrideIso : this._selectedIso))?.value;
 
       /* Replace translationString parameters by the given parameters */
       for (let i: number = 0; i < params.length; i++) {
         const regex = new RegExp(`{\\{${i}}}`, 'g');
-        translationString = translationString.replace(regex, params[i]);
+        translationString = translationString?.replace(regex, params[i]);
       }
 
       /* Return the translated string */
@@ -56,11 +56,11 @@ export class Translation {
     } else {
       /* Set language and redo the get */
 			this.language = this._defaultIso;
-      return this.getValueByKey(key);
+      return this.getValueByKey(key, params, overrideIso);
     }
   }
 
-  public getKeyByValue(value: string, preKeyFilter: string = null): string[] {
+  public getKeyByValue(value: string, preKeyFilter: string = null, overrideIso: string = null): string[] {
     if (value === null) return [];
 
     if (this._selectedIso) {
@@ -74,15 +74,15 @@ export class Translation {
         })
         .filter((item) =>
           item.values
-            .find((val) => val.iso === this._selectedIso)
+            .find((val) => val.iso === (overrideIso ? overrideIso : this._selectedIso))
             .value?.toLowerCase()
-            .includes(value.replace(/%/g, ''))
+            .includes(value?.replace(/%/g, ''))
         );
       return items.map((item) => item.key);
     } else {
       /* Set language and redo the get */
 			this.language = this._defaultIso;
-      return this.getKeyByValue(value);
+      return this.getKeyByValue(value, preKeyFilter, overrideIso);
     }
   }
 }

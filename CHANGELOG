@@ -1,6 +1,17 @@
 # Overview
 All the changes for the Premui Translation module. 
 
+[1.0.0] - 2022-07-31
+
+# Info
+- Release of the translation plugin of Premui. 
+
+# Added
+- Overrule ISO option for get transaction functions. 
+
+# Fixed
+- Small bugfix where param wasn't transfered to re-doing of some function. 
+
 [0.1.3] - 2022-02-28
 
 # Fixed
